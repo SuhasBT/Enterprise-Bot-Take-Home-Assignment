@@ -1,0 +1,508 @@
+Script started on 2026-10-11 07:26:57+00:00 [TERM="xterm-256color" TTY="/dev/pts/8" COLUMNS="85" LINES="8"]
+[?2004h]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ [7m./scenar[27m[7mi[27m[7mo.sh up[27m[A]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ ./scenario.sh up
+[?2004l==> applying cluster environment (cluster-state/)
+limitrange/debug-lab-guardrails unchanged
+namespace/debug-lab unchanged
+==> installing the broken chart
+Release "debug-lab" has been upgraded. Happy Helming!
+NAME: debug-lab
+LAST DEPLOYED: Sun Oct 11 07:27:10 2026
+NAMESPACE: debug-lab
+STATUS: deployed
+REVISION: 4
+TEST SUITE: None
+NOTES:
+debug-lab installed into namespace debug-lab.
+
+Goal state:
+  * migrate Job: Completed
+  * backend, gateway, worker, reporter, metrics: all pods Running and 1/1 Ready
+  * gateway /status reports {"self":"ok","backend":"ok",...}
+
+Check your progress at any time:
+  ./scenario.sh verify
+
+Lab is (partially) installed. Investigate with kubectl, fix the chart,
+re-run './scenario.sh up' to apply your fixes, and './scenario.sh verify'
+to check progress.
+[?2004h]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ [7m./scenar[27m[7mi[27m[7mo.sh verify[27m[A]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ ./scenario.sh verify
+[?2004l==> verifying goal state in namespace debug-lab
+  [31mFAIL[0m  migrate Job has not completed (does it exist? did the chart even install cleanly?)
+  [31mFAIL[0m  deployment backend: 0/1 ready
+  [31mFAIL[0m  deployment gateway: 0/1 ready
+  [31mFAIL[0m  deployment worker: 0/1 ready
+  [31mFAIL[0m  deployment reporter: 0/1 ready
+  [31mFAIL[0m  deployment metrics: 0/1 ready
+  [32mPASS[0m  no pods in CrashLoopBackOff
+  [31mFAIL[0m  ServiceAccount debug-lab/reporter cannot list pods
+  [31mFAIL[0m  backend does not answer on http://backend:8080/healthz
+  [31mFAIL[0m  gateway /status does not report backend=ok
+  [31mFAIL[0m  reporter /report does not return a pod count
+
+[31m10 check(s) failing[0m, 1 passing. Keep digging — every failure is a symptom.
+[?2004h]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ [7mkubectl [27m[7m-[27m[7mn debug-lab delete job migrate[27m[A]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ kubectl -n debug-lab delete job migrate
+[?2004ljob.batch "migrate" deleted from debug-lab namespace
+[?2004h]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ [7m/scenari[27m[7mo[27m[7m.sh up[27m[A]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ /scenario.sh up
+[?2004lbash: /scenario.sh: No such file or directory
+[?2004h]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ cd ../[K[K[K[K[K[K/scenario.sh up
+[?2004lbash: /scenario.sh: No such file or directory
+[?2004h]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ ./[K[7m/scenar[27m[7mi[27m[7mo.sh up[27m[A]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ [C/scenario.sh up
+[?2004l==> applying cluster environment (cluster-state/)
+limitrange/debug-lab-guardrails unchanged
+namespace/debug-lab unchanged
+==> installing the broken chart
+Release "debug-lab" has been upgraded. Happy Helming!
+NAME: debug-lab
+LAST DEPLOYED: Sun Oct 11 07:30:24 2026
+NAMESPACE: debug-lab
+STATUS: deployed
+REVISION: 5
+TEST SUITE: None
+NOTES:
+debug-lab installed into namespace debug-lab.
+
+Goal state:
+  * migrate Job: Completed
+  * backend, gateway, worker, reporter, metrics: all pods Running and 1/1 Ready
+  * gateway /status reports {"self":"ok","backend":"ok",...}
+
+Check your progress at any time:
+  ./scenario.sh verify
+
+Lab is (partially) installed. Investigate with kubectl, fix the chart,
+re-run './scenario.sh up' to apply your fixes, and './scenario.sh verify'
+to check progress.
+[?2004h]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ ./scenario.sh up[A]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ /scenario[1P[C[C[C[C[C[C[A]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ kubectl -n debug-lab delete job migrate[A]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ ./scenari[19Po.sh verify
+[?2004l==> verifying goal state in namespace debug-lab
+  [32mPASS[0m  migrate Job completed
+  [31mFAIL[0m  deployment backend: 0/1 ready
+  [31mFAIL[0m  deployment gateway: 0/1 ready
+  [31mFAIL[0m  deployment worker: 0/1 ready
+  [31mFAIL[0m  deployment reporter: 0/1 ready
+  [31mFAIL[0m  deployment metrics: 0/1 ready
+  [32mPASS[0m  no pods in CrashLoopBackOff
+  [31mFAIL[0m  ServiceAccount debug-lab/reporter cannot list pods
+  [31mFAIL[0m  backend does not answer on http://backend:8080/healthz
+  [31mFAIL[0m  gateway /status does not report backend=ok
+  [31mFAIL[0m  reporter /report does not return a pod count
+
+[31m9 check(s) failing[0m, 2 passing. Keep digging — every failure is a symptom.
+[?2004h]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ ./scenario.sh verify[4Pup
+[?2004l==> applying cluster environment (cluster-state/)
+limitrange/debug-lab-guardrails unchanged
+namespace/debug-lab unchanged
+==> installing the broken chart
+Release "debug-lab" has been upgraded. Happy Helming!
+NAME: debug-lab
+LAST DEPLOYED: Sun Oct 11 07:32:17 2026
+NAMESPACE: debug-lab
+STATUS: deployed
+REVISION: 6
+TEST SUITE: None
+NOTES:
+debug-lab installed into namespace debug-lab.
+
+Goal state:
+  * migrate Job: Completed
+  * backend, gateway, worker, reporter, metrics: all pods Running and 1/1 Ready
+  * gateway /status reports {"self":"ok","backend":"ok",...}
+
+Check your progress at any time:
+  ./scenario.sh verify
+
+Lab is (partially) installed. Investigate with kubectl, fix the chart,
+re-run './scenario.sh up' to apply your fixes, and './scenario.sh verify'
+to check progress.
+[?2004h]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ ./scenario.sh upverify
+[?2004l==> verifying goal state in namespace debug-lab
+  [32mPASS[0m  migrate Job completed
+  [31mFAIL[0m  deployment backend: 0/1 ready
+  [31mFAIL[0m  deployment gateway: 0/1 ready
+  [31mFAIL[0m  deployment worker: 0/1 ready
+  [31mFAIL[0m  deployment reporter: 0/1 ready
+  [31mFAIL[0m  deployment metrics: 0/1 ready
+  [32mPASS[0m  no pods in CrashLoopBackOff
+  [31mFAIL[0m  ServiceAccount debug-lab/reporter cannot list pods
+  [32mPASS[0m  backend answers on http://backend:8080/healthz
+  [31mFAIL[0m  gateway /status does not report backend=ok
+  [31mFAIL[0m  reporter /report does not return a pod count
+
+[31m8 check(s) failing[0m, 3 passing. Keep digging — every failure is a symptom.
+[?2004h]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ ./scenario.sh verify
+[?2004l==> verifying goal state in namespace debug-lab
+  [32mPASS[0m  migrate Job completed
+  [32mPASS[0m  deployment backend: 1/1 ready
+  [31mFAIL[0m  deployment gateway: 0/1 ready
+  [31mFAIL[0m  deployment worker: 0/1 ready
+  [31mFAIL[0m  deployment reporter: 0/1 ready
+  [31mFAIL[0m  deployment metrics: 0/1 ready
+  [32mPASS[0m  no pods in CrashLoopBackOff
+  [31mFAIL[0m  ServiceAccount debug-lab/reporter cannot list pods
+  [32mPASS[0m  backend answers on http://backend:8080/healthz
+  [31mFAIL[0m  gateway /status does not report backend=ok
+  [31mFAIL[0m  reporter /report does not return a pod count
+
+[31m7 check(s) failing[0m, 4 passing. Keep digging — every failure is a symptom.
+[?2004h]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ ./scenario.sh verify[4Pup[K[K[K[K[K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K./scenario.sh verify[4Pup
+[?2004l==> applying cluster environment (cluster-state/)
+limitrange/debug-lab-guardrails unchanged
+namespace/debug-lab unchanged
+==> installing the broken chart
+Release "debug-lab" has been upgraded. Happy Helming!
+NAME: debug-lab
+LAST DEPLOYED: Sun Oct 11 07:35:10 2026
+NAMESPACE: debug-lab
+STATUS: deployed
+REVISION: 7
+TEST SUITE: None
+NOTES:
+debug-lab installed into namespace debug-lab.
+
+Goal state:
+  * migrate Job: Completed
+  * backend, gateway, worker, reporter, metrics: all pods Running and 1/1 Ready
+  * gateway /status reports {"self":"ok","backend":"ok",...}
+
+Check your progress at any time:
+  ./scenario.sh verify
+
+Lab is (partially) installed. Investigate with kubectl, fix the chart,
+re-run './scenario.sh up' to apply your fixes, and './scenario.sh verify'
+to check progress.
+[?2004h]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ ./scenario.sh upverify
+[?2004l==> verifying goal state in namespace debug-lab
+  [32mPASS[0m  migrate Job completed
+  [32mPASS[0m  deployment backend: 1/1 ready
+  [31mFAIL[0m  deployment gateway: 0/1 ready
+  [31mFAIL[0m  deployment worker: 0/1 ready
+  [31mFAIL[0m  deployment reporter: 0/1 ready
+  [31mFAIL[0m  deployment metrics: 0/1 ready
+  [31mFAIL[0m  1 pod(s) in CrashLoopBackOff
+  [31mFAIL[0m  ServiceAccount debug-lab/reporter cannot list pods
+  [32mPASS[0m  backend answers on http://backend:8080/healthz
+  [32mPASS[0m  gateway /status reports backend=ok
+  [31mFAIL[0m  reporter /report does not return a pod count
+
+[31m7 check(s) failing[0m, 4 passing. Keep digging — every failure is a symptom.
+[?2004h]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ [K]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ [K]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ [K]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ [K]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ ./scenario.sh verify[4Pup
+[?2004l==> applying cluster environment (cluster-state/)
+limitrange/debug-lab-guardrails unchanged
+namespace/debug-lab unchanged
+==> installing the broken chart
+Release "debug-lab" has been upgraded. Happy Helming!
+NAME: debug-lab
+LAST DEPLOYED: Sun Oct 11 07:36:15 2026
+NAMESPACE: debug-lab
+STATUS: deployed
+REVISION: 8
+TEST SUITE: None
+NOTES:
+debug-lab installed into namespace debug-lab.
+
+Goal state:
+  * migrate Job: Completed
+  * backend, gateway, worker, reporter, metrics: all pods Running and 1/1 Ready
+  * gateway /status reports {"self":"ok","backend":"ok",...}
+
+Check your progress at any time:
+  ./scenario.sh verify
+
+Lab is (partially) installed. Investigate with kubectl, fix the chart,
+re-run './scenario.sh up' to apply your fixes, and './scenario.sh verify'
+to check progress.
+[?2004h]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ ./scenario.sh upverify
+[?2004l==> verifying goal state in namespace debug-lab
+  [32mPASS[0m  migrate Job completed
+  [32mPASS[0m  deployment backend: 1/1 ready
+  [32mPASS[0m  deployment gateway: 1/1 ready
+  [31mFAIL[0m  deployment worker: 0/1 ready
+  [31mFAIL[0m  deployment reporter: 0/1 ready
+  [31mFAIL[0m  deployment metrics: 0/1 ready
+  [31mFAIL[0m  1 pod(s) in CrashLoopBackOff
+  [31mFAIL[0m  ServiceAccount debug-lab/reporter cannot list pods
+  [32mPASS[0m  backend answers on http://backend:8080/healthz
+  [32mPASS[0m  gateway /status reports backend=ok
+  [31mFAIL[0m  reporter /report does not return a pod count
+
+[31m6 check(s) failing[0m, 5 passing. Keep digging — every failure is a symptom.
+[?2004h]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ ./scenario.sh verify[4Pup
+[?2004l==> applying cluster environment (cluster-state/)
+limitrange/debug-lab-guardrails unchanged
+namespace/debug-lab unchanged
+==> installing the broken chart
+Release "debug-lab" has been upgraded. Happy Helming!
+NAME: debug-lab
+LAST DEPLOYED: Sun Oct 11 07:37:55 2026
+NAMESPACE: debug-lab
+STATUS: deployed
+REVISION: 9
+TEST SUITE: None
+NOTES:
+debug-lab installed into namespace debug-lab.
+
+Goal state:
+  * migrate Job: Completed
+  * backend, gateway, worker, reporter, metrics: all pods Running and 1/1 Ready
+  * gateway /status reports {"self":"ok","backend":"ok",...}
+
+Check your progress at any time:
+  ./scenario.sh verify
+
+Lab is (partially) installed. Investigate with kubectl, fix the chart,
+re-run './scenario.sh up' to apply your fixes, and './scenario.sh verify'
+to check progress.
+[?2004h]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ ./scenario.sh upverify
+[?2004l==> verifying goal state in namespace debug-lab
+  [32mPASS[0m  migrate Job completed
+  [32mPASS[0m  deployment backend: 1/1 ready
+  [32mPASS[0m  deployment gateway: 1/1 ready
+  [32mPASS[0m  deployment worker: 1/1 ready
+  [31mFAIL[0m  deployment reporter: 0/1 ready
+  [31mFAIL[0m  deployment metrics: 0/1 ready
+  [32mPASS[0m  no pods in CrashLoopBackOff
+  [31mFAIL[0m  ServiceAccount debug-lab/reporter cannot list pods
+  [32mPASS[0m  backend answers on http://backend:8080/healthz
+  [32mPASS[0m  gateway /status reports backend=ok
+  [31mFAIL[0m  reporter /report does not return a pod count
+
+[31m4 check(s) failing[0m, 7 passing. Keep digging — every failure is a symptom.
+[?2004h]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ ./scenario.sh verify[4Pup
+[?2004l==> applying cluster environment (cluster-state/)
+limitrange/debug-lab-guardrails unchanged
+namespace/debug-lab unchanged
+==> installing the broken chart
+Release "debug-lab" has been upgraded. Happy Helming!
+NAME: debug-lab
+LAST DEPLOYED: Sun Oct 11 07:39:22 2026
+NAMESPACE: debug-lab
+STATUS: deployed
+REVISION: 10
+TEST SUITE: None
+NOTES:
+debug-lab installed into namespace debug-lab.
+
+Goal state:
+  * migrate Job: Completed
+  * backend, gateway, worker, reporter, metrics: all pods Running and 1/1 Ready
+  * gateway /status reports {"self":"ok","backend":"ok",...}
+
+Check your progress at any time:
+  ./scenario.sh verify
+
+Lab is (partially) installed. Investigate with kubectl, fix the chart,
+re-run './scenario.sh up' to apply your fixes, and './scenario.sh verify'
+to check progress.
+[?2004h]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ ./scenario.sh up
+[?2004l==> applying cluster environment (cluster-state/)
+limitrange/debug-lab-guardrails unchanged
+namespace/debug-lab unchanged
+==> installing the broken chart
+Release "debug-lab" has been upgraded. Happy Helming!
+NAME: debug-lab
+LAST DEPLOYED: Sun Oct 11 07:39:25 2026
+NAMESPACE: debug-lab
+STATUS: deployed
+REVISION: 11
+TEST SUITE: None
+NOTES:
+debug-lab installed into namespace debug-lab.
+
+Goal state:
+  * migrate Job: Completed
+  * backend, gateway, worker, reporter, metrics: all pods Running and 1/1 Ready
+  * gateway /status reports {"self":"ok","backend":"ok",...}
+
+Check your progress at any time:
+  ./scenario.sh verify
+
+Lab is (partially) installed. Investigate with kubectl, fix the chart,
+re-run './scenario.sh up' to apply your fixes, and './scenario.sh verify'
+to check progress.
+[?2004h]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ ./scenario.sh upverify
+[?2004l==> verifying goal state in namespace debug-lab
+  [32mPASS[0m  migrate Job completed
+  [32mPASS[0m  deployment backend: 1/1 ready
+  [32mPASS[0m  deployment gateway: 1/1 ready
+  [32mPASS[0m  deployment worker: 1/1 ready
+  [31mFAIL[0m  deployment reporter: 0/1 ready
+  [32mPASS[0m  deployment metrics: 1/1 ready
+  [32mPASS[0m  no pods in CrashLoopBackOff
+  [31mFAIL[0m  ServiceAccount debug-lab/reporter cannot list pods
+  [32mPASS[0m  backend answers on http://backend:8080/healthz
+  [32mPASS[0m  gateway /status reports backend=ok
+  [31mFAIL[0m  reporter /report does not return a pod count
+
+[31m3 check(s) failing[0m, 8 passing. Keep digging — every failure is a symptom.
+[?2004h]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ ./scenario.sh verify[4Pup
+[?2004l==> applying cluster environment (cluster-state/)
+limitrange/debug-lab-guardrails unchanged
+namespace/debug-lab unchanged
+==> installing the broken chart
+Release "debug-lab" has been upgraded. Happy Helming!
+NAME: debug-lab
+LAST DEPLOYED: Sun Oct 11 07:41:06 2026
+NAMESPACE: debug-lab
+STATUS: deployed
+REVISION: 12
+TEST SUITE: None
+NOTES:
+debug-lab installed into namespace debug-lab.
+
+Goal state:
+  * migrate Job: Completed
+  * backend, gateway, worker, reporter, metrics: all pods Running and 1/1 Ready
+  * gateway /status reports {"self":"ok","backend":"ok",...}
+
+Check your progress at any time:
+  ./scenario.sh verify
+
+Lab is (partially) installed. Investigate with kubectl, fix the chart,
+re-run './scenario.sh up' to apply your fixes, and './scenario.sh verify'
+to check progress.
+[?2004h]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ ./scenario.sh upverify
+[?2004l==> verifying goal state in namespace debug-lab
+  [32mPASS[0m  migrate Job completed
+  [32mPASS[0m  deployment backend: 1/1 ready
+  [32mPASS[0m  deployment gateway: 1/1 ready
+  [32mPASS[0m  deployment worker: 1/1 ready
+  [31mFAIL[0m  deployment reporter: 0/1 ready
+  [32mPASS[0m  deployment metrics: 1/1 ready
+  [32mPASS[0m  no pods in CrashLoopBackOff
+  [32mPASS[0m  ServiceAccount debug-lab/reporter can list pods
+  [32mPASS[0m  backend answers on http://backend:8080/healthz
+  [32mPASS[0m  gateway /status reports backend=ok
+  [31mFAIL[0m  reporter /report does not return a pod count
+
+[31m2 check(s) failing[0m, 9 passing. Keep digging — every failure is a symptom.
+[?2004h]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ ./scenario.sh verify[4Pup
+[?2004l==> applying cluster environment (cluster-state/)
+limitrange/debug-lab-guardrails unchanged
+namespace/debug-lab unchanged
+==> installing the broken chart
+Release "debug-lab" has been upgraded. Happy Helming!
+NAME: debug-lab
+LAST DEPLOYED: Sun Oct 11 07:43:04 2026
+NAMESPACE: debug-lab
+STATUS: deployed
+REVISION: 13
+TEST SUITE: None
+NOTES:
+debug-lab installed into namespace debug-lab.
+
+Goal state:
+  * migrate Job: Completed
+  * backend, gateway, worker, reporter, metrics: all pods Running and 1/1 Ready
+  * gateway /status reports {"self":"ok","backend":"ok",...}
+
+Check your progress at any time:
+  ./scenario.sh verify
+
+Lab is (partially) installed. Investigate with kubectl, fix the chart,
+re-run './scenario.sh up' to apply your fixes, and './scenario.sh verify'
+to check progress.
+[?2004h]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ ./scenario.sh upverify
+[?2004l==> verifying goal state in namespace debug-lab
+  [32mPASS[0m  migrate Job completed
+  [32mPASS[0m  deployment backend: 1/1 ready
+  [32mPASS[0m  deployment gateway: 1/1 ready
+  [32mPASS[0m  deployment worker: 1/1 ready
+  [31mFAIL[0m  deployment reporter: 0/1 ready
+  [32mPASS[0m  deployment metrics: 1/1 ready
+  [32mPASS[0m  no pods in CrashLoopBackOff
+  [32mPASS[0m  ServiceAccount debug-lab/reporter can list pods
+  [32mPASS[0m  backend answers on http://backend:8080/healthz
+  [32mPASS[0m  gateway /status reports backend=ok
+  [31mFAIL[0m  reporter /report does not return a pod count
+
+[31m2 check(s) failing[0m, 9 passing. Keep digging — every failure is a symptom.
+[?2004h]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ ./scenario.sh verify[4Pup
+[?2004l==> applying cluster environment (cluster-state/)
+limitrange/debug-lab-guardrails unchanged
+namespace/debug-lab unchanged
+==> installing the broken chart
+Release "debug-lab" has been upgraded. Happy Helming!
+NAME: debug-lab
+LAST DEPLOYED: Sun Oct 11 07:48:21 2026
+NAMESPACE: debug-lab
+STATUS: deployed
+REVISION: 14
+TEST SUITE: None
+NOTES:
+debug-lab installed into namespace debug-lab.
+
+Goal state:
+  * migrate Job: Completed
+  * backend, gateway, worker, reporter, metrics: all pods Running and 1/1 Ready
+  * gateway /status reports {"self":"ok","backend":"ok",...}
+
+Check your progress at any time:
+  ./scenario.sh verify
+
+Lab is (partially) installed. Investigate with kubectl, fix the chart,
+re-run './scenario.sh up' to apply your fixes, and './scenario.sh verify'
+to check progress.
+[?2004h]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ ./scenario.sh upverify
+[?2004l==> verifying goal state in namespace debug-lab
+  [32mPASS[0m  migrate Job completed
+  [32mPASS[0m  deployment backend: 1/1 ready
+  [32mPASS[0m  deployment gateway: 1/1 ready
+  [32mPASS[0m  deployment worker: 1/1 ready
+  [31mFAIL[0m  deployment reporter: 0/1 ready
+  [32mPASS[0m  deployment metrics: 1/1 ready
+  [32mPASS[0m  no pods in CrashLoopBackOff
+  [32mPASS[0m  ServiceAccount debug-lab/reporter can list pods
+  [32mPASS[0m  backend answers on http://backend:8080/healthz
+  [32mPASS[0m  gateway /status reports backend=ok
+  [31mFAIL[0m  reporter /report does not return a pod count
+
+[31m2 check(s) failing[0m, 9 passing. Keep digging — every failure is a symptom.
+[?2004h]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ ./scenario.sh verify
+[?2004l==> verifying goal state in namespace debug-lab
+  [32mPASS[0m  migrate Job completed
+  [32mPASS[0m  deployment backend: 1/1 ready
+  [32mPASS[0m  deployment gateway: 1/1 ready
+  [32mPASS[0m  deployment worker: 1/1 ready
+  [31mFAIL[0m  deployment reporter: 0/1 ready
+  [32mPASS[0m  deployment metrics: 1/1 ready
+  [32mPASS[0m  no pods in CrashLoopBackOff
+  [32mPASS[0m  ServiceAccount debug-lab/reporter can list pods
+  [32mPASS[0m  backend answers on http://backend:8080/healthz
+  [32mPASS[0m  gateway /status reports backend=ok
+  [31mFAIL[0m  reporter /report does not return a pod count
+
+[31m2 check(s) failing[0m, 9 passing. Keep digging — every failure is a symptom.
+[?2004h]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ ./scenario.sh verify
+[?2004l==> verifying goal state in namespace debug-lab
+  [32mPASS[0m  migrate Job completed
+  [32mPASS[0m  deployment backend: 1/1 ready
+  [32mPASS[0m  deployment gateway: 1/1 ready
+  [32mPASS[0m  deployment worker: 1/1 ready
+  [31mFAIL[0m  deployment reporter: 0/1 ready
+  [32mPASS[0m  deployment metrics: 1/1 ready
+  [32mPASS[0m  no pods in CrashLoopBackOff
+  [32mPASS[0m  ServiceAccount debug-lab/reporter can list pods
+  [32mPASS[0m  backend answers on http://backend:8080/healthz
+  [32mPASS[0m  gateway /status reports backend=ok
+  [31mFAIL[0m  reporter /report does not return a pod count
+
+[31m2 check(s) failing[0m, 9 passing. Keep digging — every failure is a symptom.
+[?2004h]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ ./scenario.sh verify
+[?2004l==> verifying goal state in namespace debug-lab
+  [32mPASS[0m  migrate Job completed
+  [32mPASS[0m  deployment backend: 1/1 ready
+  [32mPASS[0m  deployment gateway: 1/1 ready
+  [32mPASS[0m  deployment worker: 1/1 ready
+  [31mFAIL[0m  deployment reporter: 0/1 ready
+  [32mPASS[0m  deployment metrics: 1/1 ready
+  [32mPASS[0m  no pods in CrashLoopBackOff
+  [32mPASS[0m  ServiceAccount debug-lab/reporter can list pods
+  [32mPASS[0m  backend answers on http://backend:8080/healthz
+  [32mPASS[0m  gateway /status reports backend=ok
+  [31mFAIL[0m  reporter /report does not return a pod count
+
+[31m2 check(s) failing[0m, 9 passing. Keep digging — every failure is a symptom.
+[?2004h]0;suhas@DESKTOP-T24EDKF: /mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[01;32msuhas@DESKTOP-T24EDKF[00m:[01;34m/mnt/c/WINDOWS/system32/enterprise-bot-assignment/lab[00m$ exit
+[?2004lexit
+
+Script done on 2026-10-11 08:31:40+00:00 [COMMAND_EXIT_CODE="2"]

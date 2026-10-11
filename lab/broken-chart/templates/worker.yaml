@@ -16,6 +16,8 @@ spec:
         app: worker
         {{- include "lab.labels" . | nindent 8 }}
     spec:
+      securityContext:
+        fsGroup: 65532
       containers:
         - name: worker
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -37,9 +39,16 @@ spec:
             timeoutSeconds: 3
           securityContext:
             runAsNonRoot: true
+            runAsUser: 65532
             readOnlyRootFilesystem: true
             allowPrivilegeEscalation: false
             capabilities:
               drop: ["ALL"]
           resources:
             {{- toYaml .Values.worker.resources | nindent 12 }}
+          volumeMounts:
+            - name: worker-cache
+              mountPath: /var/cache/app
+      volumes:
+        - name: worker-cache
+          emptyDir: {}

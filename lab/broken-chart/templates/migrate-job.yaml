@@ -18,8 +18,6 @@ spec:
         - name: migrate
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          command: ["sh", "-c"]
-          args: ["echo 'Migration complete'"]
           env:
             - name: APP_MODE
               value: "migrate"
@@ -29,6 +27,7 @@ spec:
               value: "2.0.0"
           securityContext:
             runAsNonRoot: true
+            runAsUser: 65532
             readOnlyRootFilesystem: true
             allowPrivilegeEscalation: false
             capabilities:

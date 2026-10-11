@@ -24,10 +24,10 @@ spec:
             - name: http
               containerPort: {{ .Values.common.port }}
           env:
-          {{- range $name, $value := .Values.gateway.env }}
+            {{- range $name, $value := .Values.gateway.env }}
             - name: {{ $name }}
               value: {{ $value | quote }}
-          {{- end }}
+            {{- end }}
           readinessProbe:
             httpGet:
               path: /healthz
@@ -37,6 +37,7 @@ spec:
             timeoutSeconds: 3
           securityContext:
             runAsNonRoot: true
+            runAsUser: 65532
             readOnlyRootFilesystem: true
             allowPrivilegeEscalation: false
             capabilities:
