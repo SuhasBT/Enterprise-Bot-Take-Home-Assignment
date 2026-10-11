@@ -21,8 +21,8 @@ kubectl get pods -n demo
 kubectl port-forward svc/demo -n demo 8080:80
 
 # Test endpoints
-curl http://localhost:5000/
-curl http://localhost:5000/healthz
+curl http://localhost:8080/
+curl http://localhost:8080/healthz
 ```
 
 
