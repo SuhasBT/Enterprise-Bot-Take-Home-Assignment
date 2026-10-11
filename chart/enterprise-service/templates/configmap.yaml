@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-config
+data:
+  appName: {{ .Values.config.appName | quote }}
+  version: {{ .Values.config.version | quote }}
