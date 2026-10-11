@@ -7,7 +7,7 @@ spec:
   selector:
     app: {{ .Release.Name }}
   ports:
-    - port: {{ .Values.service.port }}
+    - port: 80
       targetPort: 5000
       protocol: TCP
       name: http

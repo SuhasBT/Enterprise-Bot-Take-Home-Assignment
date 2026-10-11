@@ -7,6 +7,7 @@
 
 ```bash
 ./setup.sh
+```
 
 ## Verifying the Service
 
@@ -22,6 +23,7 @@ kubectl port-forward svc/demo -n demo 8080:80
 # Test endpoints
 curl http://localhost:5000/
 curl http://localhost:5000/healthz
+```
 
 
 ## How I Used AI
@@ -39,3 +41,9 @@ curl http://localhost:5000/healthz
   - Cluster setup and ingress-nginx installation steps.
 - I verified all commands and manifests locally in my own kind cluster.
 - AI accelerated my workflow, but debugging, adjustments, and final validation were done by me.
+
+## Continuous Integration
+
+GitHub Actions runs on pushes and pull requests. It lints the Helm chart,
+builds the service image, and scans it with Trivy. The workflow fails if the
+image has any HIGH or CRITICAL vulnerabilities.

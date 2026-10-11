@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-config
 data:
-  appName: {{ .Values.config.appName | quote }}
-  version: {{ .Values.config.version | quote }}
+  appName: {{ .Values.config.appName }}
+  version: {{ .Values.config.version }}
