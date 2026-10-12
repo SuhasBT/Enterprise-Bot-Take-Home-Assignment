@@ -5,9 +5,10 @@
 1. Ensure you have **Docker**, **kind**, **kubectl**, and **helm** installed.
 2. Clone this repository and run:
 
-cd Enterprise-Bot-Take-Home-Assignment
+
 
 ```bash
+cd Enterprise-Bot-Take-Home-Assignment
 ./setup.sh
 ```
 
