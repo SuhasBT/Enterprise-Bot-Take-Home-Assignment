@@ -16,10 +16,9 @@ fi
 # Install ingress-nginx (idempotent)
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
 
-# Wait for ingress controller to be ready
-kubectl wait --namespace ingress-nginx \
-  --for=condition=ready pod \
-  --selector=app.kubernetes.io/component=controller \
+# Wait for the ingress controller deployment to become available
+kubectl rollout status deployment/ingress-nginx-controller \
+  --namespace ingress-nginx \
   --timeout=180s
 
 # Build Docker image
